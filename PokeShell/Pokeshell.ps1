@@ -1,4 +1,4 @@
-#Making a Hashtable with the Shellmons
+# Storing the Shellmons in a Hashtable
 $Shellmon = @{
     "Pikashell" = @{
         HP = 100
@@ -30,6 +30,24 @@ $Shellmon = @{
     }
 }
 
+# Display all available Shellmons
+Write-Host "Available Shellmons:"
+foreach ($shellmonName in $Shellmon.Keys) {
+    Write-Host "- $shellmonName"
+}
 
+# Player chooses a Shellmon
+$playerChoice = Read-Host "Choose your Shellmon (Pikashell, Shellizard, Blastoshell, Venushell)"
+$playerShellmon = $Shellmon[$playerChoice]
 
+Write-Host " "
+Write-Host "You choose for: " $playerChoice 
+Write-Host " "
+
+# Computer chooses a random Shellmon
+$computerChoice = $Shellmon.Keys | Get-Random
+$computerShellmon = $shellmon[$computerChoice]
+
+Write-Host "The computer choose for: " $computerChoice
+Write-Host " "
 
