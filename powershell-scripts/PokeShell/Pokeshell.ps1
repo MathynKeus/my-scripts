@@ -50,4 +50,5 @@ $computerShellmon = $shellmon[$computerChoice]
 
 Write-Host "The computer choose for: " $computerChoice
 Write-Host " "
+Write-Host "The computer choose for: " $computerChoice
 
