@@ -1,0 +1,62 @@
+# Set the working directory to where your script is located
+Set-Location -Path "your_path"
+
+# Define the webhook URL for Discord (replace with your webhook URL)
+$webhookUrl = "your_discord_webhook_url"  # Replace with your Discord webhook URL
+
+# Define the path to the Veeam Agent event log
+$logFilePath = "$env:SystemRoot\System32\Winevt\Logs\Veeam Agent.evtx"
+
+# Define Event ID for backup events
+$backupEventId = 190  # Event ID for backup job
+
+# Retrieve the most recent backup event (Event ID 190)
+$backupEvent = Get-WinEvent -Path $logFilePath | 
+    Where-Object { $_.Id -eq $backupEventId } |
+    Sort-Object TimeCreated -Descending | Select-Object -First 1
+
+# Check if we retrieved a backup event
+if ($backupEvent) {
+    # Determine success or failure based on LevelDisplayName
+    $status = if ($backupEvent.LevelDisplayName -eq "Information") { "Success" } else { "Failed" }
+    $jobDetails = $backupEvent.Message
+    $backupDate = $backupEvent.TimeCreated.ToString("yyyy-MM-dd HH:mm:ss")
+
+    # Prepare the message for Discord
+    $message = @{
+        content = "**Veeam Backup Job Status Notification**"
+        embeds = @(
+            @{
+                title = "Backup Job Status"
+                description = "Details of the latest Veeam backup job:"
+                color = if ($status -eq "Success") { 65280 } else { 16711680 }  # Green for success, Red for failure
+                fields = @(
+                    @{
+                        name = "Status"
+                        value = $status
+                        inline = $true
+                    },
+                    @{
+                        name = "Job Details"
+                        value = $jobDetails
+                        inline = $false
+                    },
+                    @{
+                        name = "Timestamp"
+                        value = $backupDate
+                        inline = $false
+                    }
+                )
+            }
+        )
+    }
+
+    # Send the notification to Discord via webhook
+    try {
+        Invoke-RestMethod -Uri $webhookUrl -Method Post -ContentType "application/json" -Body (ConvertTo-Json $message -Depth 10)
+    } catch {
+        Write-Host "Error sending notification: $_"
+    }
+} else {
+    Write-Host "No Veeam backup job event found."
+}
