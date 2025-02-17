@@ -1,7 +1,7 @@
 # Set the working directory to where your script is located
 Set-Location -Path "your_path"
 
-# Define the webhook URL for Discord (replace with your webhook URL)
+# Define the webhook URL for Discord
 $webhookUrl = "your_discord_webhook_url"  # Replace with your Discord webhook URL
 
 # Define the path to the Veeam Agent event log
