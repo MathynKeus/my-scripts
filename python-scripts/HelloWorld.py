@@ -50,4 +50,46 @@ my_num = 8
 print(my_num)
 print(str(my_num)) #convert int > str
 print(str(my_num) + " is my favorite number") #print int as str with str
+print(max(4,6)) #prints the higher number
+print(min(4,6)) #prints the lower number
+print(round(3.2)) #rounds the number
 
+#imports a bunch of math functions
+from math import *
+print(floor(3.7)) #grabs the lowest number
+
+#input from users
+name = input("Enter your name:")
+print("Hello " + name)
+
+#input name + age
+name = input("Enter your name:")
+age = input("Enter your age")
+print("Hello " + name + "You are " + age + " years old")
+
+#calculator
+num1 = input("Enter a number")
+num2 = input("Enter a second number")
+result = int(num1) + int(num2)
+print(result)
+
+#calculator with decimal numbers
+num1 = input("Enter a number")
+num2 = input("Enter a second number")
+result = float(num1) + float(num2)
+print(result)
+
+#madlibsgame
+color = input("Enter a color")
+plural_noun = input("Enter a plural noun")
+celebrity = input("Enter a celebrity")
+
+print("Roses are " + color ) 
+print(plural_noun + " are blue")
+print("I love " + celebrity)
+
+#lists
+friends = ["Swiper", "Boots", "Dora", "Diego", "Jeff"]
+print(friends[0])
+print(friends[0:4]) #position 0 -> 4
+print(friends[0], friends[4]) #position 0 + 4
