@@ -1,3 +1,4 @@
-# Hello, World! Python script
+x = 5
+y = "Mathyn"
 
-print("Hello, World!")
+print(x, y)
