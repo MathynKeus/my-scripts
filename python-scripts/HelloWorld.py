@@ -3,13 +3,13 @@ Learn Python - Full Course for Beginners [Tutorial]
 #https://www.youtube.com/watch?v=rfscVS0vtbw&t=7054s
 """
 
-#variables (string)
+#variables_strings
 character_name = "Mathyn"
 print("The name is: " + character_name)
 character_age = "18" 
 print("The age is :" + character_age)
 
-#variables (string + integer)
+#variables_strings_integers
 character_name = "Mathyn"
 print("The name is: " + character_name)
 character_age = 18 
@@ -29,7 +29,7 @@ print("hello\"World")
 name = "Mathyn"
 print(name)
 
-#functions
+#example_of_functions
 name = "Mathyn"
 print(name.lower()) #name in lower case
 print(name.isupper()) #check if name is uppercase, true or false.
@@ -41,7 +41,7 @@ print(name.index("Mathyn"))
 print(name.index("athyn"))
 print(name.replace("Mathyn", "mathyn"))
 
-#Integers (numbers)
+#Integers_numbers
 print(3 * 4 + 5)
 print (3 * (4 + 5)) #basic math lol
 print (10 % 3) #show remainder
@@ -54,15 +54,15 @@ print(max(4,6)) #prints the higher number
 print(min(4,6)) #prints the lower number
 print(round(3.2)) #rounds the number
 
-#imports a bunch of math functions
+#imports_a_bunch_of_math_functions
 from math import *
 print(floor(3.7)) #grabs the lowest number
 
-#input from users
+#input_from_users
 name = input("Enter your name:")
 print("Hello " + name)
 
-#input name + age
+#input_name_and_age
 name = input("Enter your name:")
 age = input("Enter your age")
 print("Hello " + name + "You are " + age + " years old")
@@ -73,7 +73,7 @@ num2 = input("Enter a second number")
 result = int(num1) + int(num2)
 print(result)
 
-#calculator with decimal numbers
+#calculator_with_decimal_numbers
 num1 = input("Enter a number")
 num2 = input("Enter a second number")
 result = float(num1) + float(num2)
@@ -93,3 +93,29 @@ friends = ["Swiper", "Boots", "Dora", "Diego", "Jeff"]
 print(friends[0])
 print(friends[0:4]) #position 0 -> 4
 print(friends[0], friends[4]) #position 0 + 4
+
+#lists_functions
+lucky_numbers = [4, 8, 15, 16, 23, 42]
+friends = ["Swiper", "Boots", "Dora", "Diego", "Jeff"]
+friends.append("Kees")
+friends.extend(lucky_numbers)
+friends.insert(1, "Jan")
+friends.remove("Swiper")
+friends.clear()
+friends.sort()
+print(friends.index("Jeff"))
+print(friends.__contains__("Jeff"))
+
+friends2 = friends.copy()
+print(friends2)
+
+#tuples
+coordinates = (4, 5), (6,7), (8,9)
+print(coordinates[0])
+
+#functions
+def say_hi(name, age):
+    print("Hello " + name + " You are " + str(age))
+
+say_hi("Mike", 33)
+
