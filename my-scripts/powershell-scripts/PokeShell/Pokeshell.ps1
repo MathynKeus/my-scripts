@@ -1,4 +1,4 @@
-# Storing the Shellmons in a Hashtable
+# Storing the Shellmons in a Hashtable!
 $Shellmon = @{
     "Pikashell" = @{
         HP = 100
