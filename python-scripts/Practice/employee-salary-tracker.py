@@ -1,4 +1,4 @@
-employee_salaries = {"Mathyn": 3000}
+employee_salaries = {}
 
 def add_employee(name, salary):
     if name in employee_salaries:
