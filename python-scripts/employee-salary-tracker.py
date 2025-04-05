@@ -27,7 +27,6 @@ def employee_input():
     salary = int(input("Enter the salary of the employee: "))
     add_employee(name, salary)
 
-
 #calling the function 
 answer = input("Would you like to add or remove a salary for a person?")
 if answer == "add":

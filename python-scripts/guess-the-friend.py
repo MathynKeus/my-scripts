@@ -15,3 +15,7 @@ if guess in friends:
 else:
      print("Sorry,  " + guess + " is not on the list.")
 
+for name in friends(range[10])
+    
+     
+     
